@@ -5,7 +5,7 @@
 <body>
 	<form id="form1" runat="server">
 	<div>
-	<%Response.Write("Percentages of traverse-mentoring mbti types: 16.6% EXFP 15.3% IXFJ, 14.8% EXFJ 13.2% IXFP, 13.7% IXTJ 6.5% EXTP, 10.5% EXTJ %8.7 IXTP");%>
+	<%Response.Write("Percentages of traverse-mentoring mbti types: 16.7% EXFP 15.4% IXFJ, 14.9% EXFJ 13.3% IXFP, 13.8% IXTJ 6.6% EXTP, 10.6% EXTJ %8.7 IXTP");%>
 	</div>
 	</form>
 </body>
