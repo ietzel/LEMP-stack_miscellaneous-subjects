@@ -5,7 +5,7 @@
 <body>
 	<form id="form1" runat="server">
 	<div>
-	<%Response. Write( "HeIIo World"); %>
+	<%Response. Write( "Enter your MBTI type"); %>
 	</div>
 	</form>
 </body>
