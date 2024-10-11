@@ -97,12 +97,5 @@
 		}
 		loop();
 	</script>
-	<%--
-	<form id="form1" runat="server">
-	<div>
-	<%Response.Write("Vampire: the Masquerade");%
-	</div>
-	</form>
-	--%>
 </body>
 </html>
