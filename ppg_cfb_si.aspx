@@ -93,9 +93,9 @@
 		}
 		function draw() {
 			if (player.collideWith(food)) {
-				ctx.font = “24px Arial”;
-				ctx.fillStyle = “rgb(255, 0 ,255)”;
-				ctx.fillText(“COLLISION DETECTED”, 50, 50);
+				ctx.font = "24px Arial";
+				ctx.fillStyle = "rgb(255, 0 ,255)";
+				ctx.fillText("Collision Detected", 50, 50);
 			} else { 
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 				drawBox(player);
