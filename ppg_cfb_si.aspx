@@ -1,6 +1,6 @@
 <html xmlns="www.w3.org/1999/xhtml">
 <head runat="server">
-	<title></title>
+	<title>Vampire: The Masquerade</title>
 </head>
 <body>
 	<canvas id="gC" width="1000" height="800"></canvas>
