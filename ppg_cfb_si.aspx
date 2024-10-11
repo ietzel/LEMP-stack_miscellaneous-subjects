@@ -37,6 +37,18 @@
 					collision = false;
 				}
 			} 
+			//Physical: Athletics, Brawl, Craft, Drive, Firearms, Larceny, Melee, Stealth, Survival.
+			this.strength = 1;
+			this.dexterity = 1;
+			this.stamina = 1;
+			//Mental: Academics, Awareness, Finance, Investigation, Medicine, Occult, Politics, Science, Technology.
+			this.intelligence = 1;
+			this.wits = 1;
+			this.resolve = 1;
+			//Social: Animal Ken, Etiquette, Insight, Intimidation, Leadership, Performace, Persuasion, Streetwise, Subterfuge.
+			this.charisma = 1;
+			this.manipulation = 1;
+			this.composure = 1;
 		}
 		var player = new Box({
 			x: 10, 
