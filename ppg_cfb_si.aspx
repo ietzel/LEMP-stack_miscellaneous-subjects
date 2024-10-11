@@ -27,16 +27,32 @@
 			this.color = options.color || ‘#000000’;
 			this.speed = options.speed || 5;
 			this.direction =options.direction || ‘right’;
+			this.collideWith = function(otherobject) {
+				var myleft = this.x;
+				var myright = this.x + (this.width);
+				var mytop = this.y;
+				var mybottom = this.y + (this.height);
+				var collision = true
+				if ((mybottom <= othertop) || (mytop >= otherbottom) || (myright <= otherleft) || (myleft >= otherright)) {
+					collision = false;
+				}
+			} 
 		}
 		var player = new Box({
 			x: 10, 
 			y: 10,
 			width: 50,
 			height: 40,	
-			color: ‘#44ee11’,
+			color: "#44ee11",
 			speed: 5
 		});
-
+		var food = new Box({
+			x: 100, 
+			y: 100,
+			width: 25,
+			height: 25,	
+			color: "#ee3344"
+		});
 		function input(player) {
 			if(37 in keys) {
 				player.x -= player.speed;
@@ -64,8 +80,15 @@
 			input(player);
 		}
 		function draw() {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			drawBox(player);
+			if (player.collideWith(food)) {
+				ctx.font = “24px Arial”;
+				ctx.fillStyle = “rgb(255, 0 ,255)”;
+				ctx.fillText(“COLLISION DETECTED”, 50, 50);
+			} else { 
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				drawBox(player);
+				drawBox(food);
+			}
 		}
 		function loop() {
 			update();
