@@ -24,9 +24,9 @@
 				this.y = options.y || 10;
 				this.width = options.width || 40;
 				this.height = options.height || 50;
-				this.color = options.color || ‘#000000’;
+				this.color = options.color || "#000000";
 				this.speed = options.speed || 5;
-				this.direction =options.direction || ‘right’;
+				this.direction =options.direction || "right";
 				this.collideWith = function(otherobject) {
 					var myleft = this.x;
 					var myright = this.x + (this.width);
