@@ -40,6 +40,7 @@
 					if ((mybottom <= othertop) || (mytop >= otherbottom) || (myright <= otherleft) || (myleft >= otherright)) {
 						collision = false;
 					}
+					return collision;
 				} 
 				//Physical: Athletics, Brawl, Craft, Drive, Firearms, Larceny, Melee, Stealth, Survival.
 				this.strength = 1;
