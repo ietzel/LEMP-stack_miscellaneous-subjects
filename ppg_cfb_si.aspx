@@ -11,11 +11,11 @@
 			canvas.height = canvas.innerHeight;
 	
 			var keys = {};
-			window.addEventListener(‘keydown’, function(e) {
+			window.addEventListener("keydown", function(e) {
 				keys[e.keyCode] = true;
 				e.preventDefault();
 			});
-			window.addEventListener(‘keyup’, function(e) {
+			window.addEventListener("keyup", function(e) {
 				delete keys[e.keyCode];
 			});
 	
@@ -26,7 +26,7 @@
 				this.height = options.height || 50;
 				this.color = options.color || "#000000";
 				this.speed = options.speed || 5;
-				this.direction =options.direction || "right";
+				this.direction = options.direction || "right";
 				this.collideWith = function(otherobject) {
 					var myleft = this.x;
 					var myright = this.x + (this.width);
