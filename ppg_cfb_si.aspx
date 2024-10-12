@@ -63,20 +63,20 @@
 			});
 			function input() {
 				if (87 in keys) {
-					if (player1.y - player1.gravity > 0) {
+					if ((player1.y - player1.gravity) > 0) {
 						player1.y -= player1.gravity;
 					}
 				} else if (83 in keys) {
-					if (player1.y + player1.height + player1.gravity < canvas.height) {
+					if ((player1.y + player1.height + player1.gravity) < canvas.height) {
 						player1.y += player1.gravity;
 					}
 				} 
 				if (38 in keys) {
-					if (player2.y - player2.gravity > 0) {
+					if ((player2.y - player2.gravity) > 0) {
 						player2.y -= player2.gravity;
 					}
 				} else if (40 in keys) {
-					if (player2.y + player2.height + player2.gravity < canvas.height) {
+					if ((player2.y + player2.height + player2.gravity) > canvas.height) {
 						player2.y += player2.gravity;
 					}
 				}
