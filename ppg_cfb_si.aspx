@@ -32,6 +32,10 @@
 					var myright = this.x + (this.width);
 					var mytop = this.y;
 					var mybottom = this.y + (this.height);
+					var otherleft = otherobject.x;
+					var otherright = otherobject.x + (otherobject.width);
+					var othertop = otherobject.y;
+					var otherbottom = otherobject.y + (otherobject.height);
 					var collision = true;
 					if ((mybottom <= othertop) || (mytop >= otherbottom) || (myright <= otherleft) || (myleft >= otherright)) {
 						collision = false;
