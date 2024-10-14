@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html>
 	<head runat="server">
 		<title>Vampire: The Masquerade</title>
 	</head>
 	<body>
-		<canvas id="gC" width="1000" height="800"></canvas>
+		<canvas id="gC" width="650" height="600"></canvas>
 		<script>
 			var canvas = document.getElementById("gC");
 			var ctx = canvas.getContext("2d");
@@ -46,7 +47,7 @@
 				y: 200,
 				width: 15,
 				height: 80,
-				color: '#FFFFFF',
+				color: "black",
 				gravity: 2
 			});
 			var player2 = new Box({
@@ -54,7 +55,7 @@
 				y: 100,
 				width: 15,
 				height: 80,
-				color: '#FFFFFF',
+				color: "black",
 				gravity: 2
 			});
 			var midLine = new Box({
@@ -62,14 +63,14 @@
 				y: -1,
 				width: 5,
 				height: canvas.height+1,
-				color: '#FFFFFF'
+				color: "black"
 			});
 			var theBall = new Box({
 				x: (canvas.width / 2),
 				y: (canvas.height / 2),
 				width: 15,
 				height: 15,
-				color: '#FF0000',
+				color: "black",
 				speed: 1,
 				gravity: 1
 			});
@@ -97,18 +98,6 @@
 				ctx.fillStyle = box.color;
 				ctx.fillRect(box.x, box.y, box.width, box.height);
 			}
-			function displayScore1() {
-				ctx.font = "20px Arial";
-				ctx.fillStyle = "rgb(255,255,255)";
-				var str1 = score1;
-				ctx.fillText(str1, (canvas.width/2) - 50, 30);
-			}
-			function displayScore2() {
-				ctx.font = "20px Arial";
-				ctx.fillStyle = "rgb(255,255,255)";
-				var str2 = score2;
-				ctx.fillText(str2, (canvas.width / 2) + 50, 30);
-			}
 			function ballBounce() {
 				if (((theBall.y+theBall.gravity) <= 0) || ((theBall.y+theBall.gravity+theBall.height) >= canvas.height)){
 					theBall.gravity = theBall.gravity * -1;
@@ -132,9 +121,8 @@
 				draw();
 			}
 			function draw() {
+				ctx.fillStyle="grey";
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
-				displayScore1();
-				displayScore2();
 				drawBox(player1);
 				drawBox(player2);
 				drawBox(midLine);
