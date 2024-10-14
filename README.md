@@ -1,1 +1,1 @@
-Run with IIS + Angular + Azure.
+Run on IIS Manager by editing and browsing on the default web site).
