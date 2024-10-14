@@ -8,8 +8,6 @@
 		<script>
 			var canvas = document.getElementById("gC");
 			var ctx = canvas.getContext("2d");
-			canvas.width = canvas.innerWidth;
-			canvas.height = canvas.innerHeight;
 	
 			var score1 = 0;
 			var score2 = 0;
