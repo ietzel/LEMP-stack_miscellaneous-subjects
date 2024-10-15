@@ -1,93 +1,95 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Vampire: The Masquerade</title>
-	</head>
-	<body>
-		<canvas id="gC" width="650" height="600"></canvas>
-		<script>
-			var canvas = document.getElementById('gC');
-			var ctx = canvas.getContext('2d');
-			canvas.width = 500;
-			canvas.height = 400;
-			var keys = {};
-			window.addEventListener('keydown', function (e) {
-				keys[e.keyCode] = true;
-				e.preventDefault();
-			});
-			window.addEventListener('keyup', function (e) {
-				delete keys[e.keyCode];
-			});
-			function Box(options) {
-				this.x = options.x || 10;
-				this.y = options.y || 10;
-				this.width = options.width || 40;
-				this.height = options.height || 50;
-				this.color = options.color || '#000000'
-				this.speed = options.speed || 5;
-				this.direction = options.direction || 'right';
-				this.gravity = options.gravity || 5;
-				/*Physical: Athletics, Brawl, Craft, Drive, Firearms, Larceny, Melee, Stealth, Survival.
-				Mental: Academics, Awareness, Finance, Investigation, Medicine, Occult, Politics, Science, Technology.
-				Social: Animal Ken, Etiquette, Insight, Intimidation, Leadership, Performace, Persuasion, Streetwise, Subterfuge.*/
-				this.attributes = [this.strength = 1, this.dexterity = 1, this.stamina = 1, this.intelligence = 1, this.wits = 1, this.resolve = 1, this.charisma = 1, this.manipulation = 1, this.composure = 1];
-				this.collideWith = function(otherobject) {
-					var myleft = this.x;
-					var myright = this.x + (this.width);
-					var mytop = this.y;
-					var mybottom = this.y + (this.height);
-					var otherleft = otherobject.x;
-					var otherright = otherobject.x + (otherobject.width);
-					var othertop = otherobject.y;
-					var otherbottom = otherobject.y + (otherobject.height);
-					var collision = true;
-					if ((mybottom <= othertop) || (mytop >= otherbottom) || (myright <= otherleft) || (myleft >= otherright)) {
-						collision = false;
-					}
-					return collision;
-				}
-			}
-			var player = new Box({
-				x: 150,
-				y: 300,
-				width: 60,
-				height: 20,
-				color: '#44ee11',
-				speed: 5
-			});
-			var enemy = new Box({
-				x: 60,
-				y: 50,
-				width: 200,
-				height: 25,
-				color: 'rgb('+(Math.floor(Math.random()*256))+','+(Math.floor(Math.random()*256))+','+(Math.floor(Math.random()*256))+')'
-			});
-			function input(player) {
-				if (37 in keys) {
-					if (player.x - player.speed > 0) {
-						player.x -= player.speed;
-					}
-					player.direction = 'left';
-				}
-				if (39 in keys) {
-					if (player.x + player.width + player.speed < canvas.width) {
-						player.x += player.speed;
-					}
-					player.direction = 'right';
-				}
-			}
-			function drawBox(box) {
-				ctx.fillStyle = box.color;
-				ctx.fillRect(box.x, box.y, box.width, box.height);
-			}
-			function update() {
-				input(player);
-			}
-			function loop() {
-				update();
-				window.requestAnimationFrame(loop);
-			}
-			loop(); 
-		</script>
-	</body>
-</html>
+<?php
+echo '<!DOCTYPE html>';
+echo '<html>';
+echo '<head>';
+echo '<title>Vampire: The Masquerade</title>';
+echo '</head>';
+echo '<body>';
+echo '<canvas id="gC" width="650" height="600"></canvas>';
+echo '<script>';
+echo 'var canvas = document.getElementById('gC');';
+echo 'var ctx = canvas.getContext('2d');';
+echo 'canvas.width = 500;';
+echo 'canvas.height = 400;';
+echo 'var keys = {};';
+echo 'window.addEventListener('keydown', function (e) {';
+echo 'keys[e.keyCode] = true;';
+echo 'e.preventDefault();';
+echo '});';
+echo 'window.addEventListener('keyup', function (e) {';
+echo 'delete keys[e.keyCode];';
+echo '});';
+echo 'function Box(options) {';
+echo 'this.x = options.x || 10;';
+echo 'this.y = options.y || 10;';
+echo 'this.width = options.width || 40;';
+echo 'this.height = options.height || 50;';
+echo 'this.color = options.color || '#000000'';
+echo 'this.speed = options.speed || 5;';
+echo 'this.direction = options.direction || 'right';';
+echo 'this.gravity = options.gravity || 5;';
+echo '/*Physical: Athletics, Brawl, Craft, Drive, Firearms, Larceny, Melee, Stealth, Survival.';
+echo 'Mental: Academics, Awareness, Finance, Investigation, Medicine, Occult, Politics, Science, Technology.';
+echo 'Social: Animal Ken, Etiquette, Insight, Intimidation, Leadership, Performace, Persuasion, Streetwise, Subterfuge.*/';
+echo 'this.attributes = [this.strength = 1, this.dexterity = 1, this.stamina = 1, this.intelligence = 1, this.wits = 1, this.resolve = 1, this.charisma = 1, this.manipulation = 1, this.composure = 1];';
+echo 'this.collideWith = function(otherobject) {';
+echo 'var myleft = this.x;';
+echo 'var myright = this.x + (this.width);';
+echo 'var mytop = this.y;';
+echo 'var mybottom = this.y + (this.height);';
+echo 'var otherleft = otherobject.x;';
+echo 'var otherright = otherobject.x + (otherobject.width);';
+echo 'var othertop = otherobject.y;';
+echo 'var otherbottom = otherobject.y + (otherobject.height);';
+echo 'var collision = true;';
+echo 'if ((mybottom <= othertop) || (mytop >= otherbottom) || (myright <= otherleft) || (myleft >= otherright)) {';
+echo 'collision = false;';
+echo '}';
+echo 'return collision;';
+echo '}';
+echo '}';
+echo 'var player = new Box({';
+echo 'x: 150,';
+echo 'y: 300,';
+echo 'width: 60,';
+echo 'height: 20,';
+echo 'color: '#44ee11',';
+echo 'speed: 5';
+echo '});';
+echo 'var enemy = new Box({';
+echo 'x: 60,';
+echo 'y: 50,';
+echo 'width: 200,';
+echo 'height: 25,';
+echo 'color: 'rgb('+(Math.floor(Math.random()*256))+','+(Math.floor(Math.random()*256))+','+(Math.floor(Math.random()*256))+')'';
+echo '});';
+echo 'function input(player) {';
+echo 'if (37 in keys) {';
+echo 'if (player.x - player.speed > 0) {';
+echo 'player.x -= player.speed;';
+echo '}';
+echo 'player.direction = 'left';';
+echo '}';
+echo 'if (39 in keys) {';
+echo 'if (player.x + player.width + player.speed < canvas.width) {';
+echo 'player.x += player.speed;';
+echo '}';
+echo 'player.direction = 'right';';
+echo '}';
+echo '}';
+echo 'function drawBox(box) {';
+echo 'ctx.fillStyle = box.color;';
+echo 'ctx.fillRect(box.x, box.y, box.width, box.height);';
+echo '}';
+echo 'function update() {';
+echo 'input(player);';
+echo '}';
+echo 'function loop() {';
+echo 'update();';
+echo 'window.requestAnimationFrame(loop);';
+echo '}';
+echo 'loop();';
+echo '</script>';
+echo '</body>';
+echo '</html>';
+?>
