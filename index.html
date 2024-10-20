@@ -28,6 +28,18 @@
   this.physical = Math.floor(Math.sqrt(Math.random()*10));
   this.mental = Math.floor(Math.sqrt(Math.random()*10));
   this.social = Math.floor(Math.sqrt(Math.random()*10));
+  this.move = function(otherX, otherY) {
+   if(this.x < otherX) {
+    this.x++;
+   } else {
+    this.x--;
+   }
+   if(this.y < otherY) {
+    this.y++;
+   } else {
+    this.y--;
+   }
+  }
   this.collideWith = function(otherobject) {
    var myleft = this.x;
    var myright = this.x + (this.width);
@@ -110,6 +122,7 @@
    }
   }
   function loop() {
+   emeny.move(player.x, player.y);
    update();
    checkBounce();
    window.requestAnimationFrame(loop);
