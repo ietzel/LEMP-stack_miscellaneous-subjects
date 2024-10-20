@@ -1,13 +1,14 @@
 <body>
  <canvas id="gC"></canvas>
+ <style>
+ body { background-color: black }
+ </style>
  <script>
  var canvas = document.getElementById('canvas');
  var ctx = canvas.getContext('2d');
  canvas.width = 500;
  canvas.height = 400;
  var keys = {};
- var score = 0;
- var livesLeft = 10;
  window.addEventListener('keydown', function (e) {
   keys[e.keyCode] = true;
   e.preventDefault();
@@ -24,9 +25,6 @@
  this.speed = options.speed || 5;
  this.direction = options.direction || 'right';
  this.gravity = options.gravity || 5;
- /*'Physical: Athletics, Brawl, Craft, Drive, Firearms, Larceny, Melee, Stealth, Survival.'
- 'Mental: Academics, Awareness, Finance, Investigation, Medicine, Occult, Politics, Science, Technology.'
- 'Social: Animal Ken, Etiquette, Insight, Intimidation, Leadership, Performace, Persuasion, Streetwise, Subterfuge.'*/
  this.physical = Math.floor(Math.sqrt(Math.random()*10));
  this.mental = Math.floor(Math.sqrt(Math.random()*10));
  this.social = Math.floor(Math.sqrt(Math.random()*10));
@@ -98,55 +96,17 @@
  function update() {
   input(player);
  }
- function updateScoreBoard() {
-  ctx.font = "24px Arial";
-  ctx.fillStyle = "rgb(255,0,255)";
-  var str = "Score = " + score;
-  ctx.fillText(str, 50, 380);
- }
  function checkBounce() {
-  if ((food.x <=0) || (food.x >= canvas.width - food.width)){
-   food.speed = food.speed * -1;
-  }
-  if (food.y <= 0){
-   food.gravity = food.gravity *-1;
-  }
-  if (food.y > player.y- food.height+10){
-   food.x = 200;
-   food.y = 200;
-   food.gravity = 0;
-   food.speed = 0;
-  }
-  draw();
- }
- function draw() {
-  if (player.collideWith(food)) {
-   score += 1;
-   livesLeft -=1;
+  if(player.collideWith(enemy)) {
    ctx.clearRect(0, 0, canvas.width, canvas.height);
-   food.gravity = food.gravity * -1;
-   gravityBounce();
    drawBox(player);
    drawBox(food);
    drawBox(enemy);
-   updateScoreBoard();
-  } else if (food.collideWith(enemy)) {
-   score += 1;
-   livesLeft -= 1;
-   ctx.clearRect(0, 0, canvas.width, canvas.height);
-   food.gravity = food.gravity * -1;
-   gravityBounce();
-   drawBox(player);
-   drawBox(food);
-   drawBox(enemy);
-   updateScoreBoard();
   } else {
    ctx.clearRect(0, 0, canvas.width, canvas.height);
-   gravityBounce();
    drawBox(player);
    drawBox(food);
    drawBox(enemy);
-   updateScoreBoard();
   }
  }
  function loop() {
