@@ -27,7 +27,9 @@
  /*'Physical: Athletics, Brawl, Craft, Drive, Firearms, Larceny, Melee, Stealth, Survival.'
  'Mental: Academics, Awareness, Finance, Investigation, Medicine, Occult, Politics, Science, Technology.'
  'Social: Animal Ken, Etiquette, Insight, Intimidation, Leadership, Performace, Persuasion, Streetwise, Subterfuge.'*/
- this.attributes = [this.physical, this.mental, this.social];
+ this.physical = Math.floor(Math.sqrt(Math.random()*10));
+ this.mental = Math.floor(Math.sqrt(Math.random()*10));
+ this.social = Math.floor(Math.sqrt(Math.random()*10));
  this.collideWith = function(otherobject) {
   var myleft = this.x;
   var myright = this.x + (this.width);
