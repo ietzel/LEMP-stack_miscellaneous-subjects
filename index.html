@@ -4,7 +4,7 @@
  body { background-color: black }
  </style>
  <script>
-  var canvas = document.getElementById('canvas');
+  var canvas = document.getElementById("gC");
   var ctx = canvas.getContext('2d');
   canvas.width = 500;
   canvas.height = 400;
@@ -23,7 +23,7 @@
   this.height = options.height || 50;
   this.color = options.color || '#000000'
   this.speed = options.speed || 5;
-  this.direction = options.direction || 'right';
+  this.direction = options.direction || "right" || "up" || "down";
   this.gravity = options.gravity || 5;
   this.physical = Math.floor(Math.sqrt(Math.random()*10));
   this.mental = Math.floor(Math.sqrt(Math.random()*10));
