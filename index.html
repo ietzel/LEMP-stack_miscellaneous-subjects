@@ -72,6 +72,18 @@
     }
    player.direction = 'right';
   }
+    if (38 in keys) {
+   if (player.y - player.speed > 0) {
+    player.y -= player.speed;
+   }
+   player.direction = 'up';
+   }
+   if (40 in keys) {
+    if (player.y + player.height + player.speed < canvas.height) {
+     player.y += player.speed;
+    }
+   player.direction = 'down';
+  }
  }
  function drawBox(box) {
   ctx.fillStyle = box.color;
