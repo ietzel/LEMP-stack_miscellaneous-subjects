@@ -101,23 +101,21 @@
    ctx.fillStyle = box.color;
    ctx.fillRect(box.x, box.y, box.width, box.height);
   }
-  function gravityBounce() {
-   food.y += food.gravity;
-   food.x += food.speed;
-  }
   function update() {
    input(player);
   }
   function checkBounce() {
    if(player.collideWith(enemy)) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "gray";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     drawBox(player);
-    drawBox(food);
     drawBox(enemy);
    } else {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "gray";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     drawBox(player);
-    drawBox(food);
     drawBox(enemy);
    }
   }
