@@ -1,12 +1,12 @@
 <body>
  <canvas id="gC"></canvas>
- <style>
+ <!--<style>
  body { background-color: gray }
- </style>
+ </style>-->
  <script>
   var canvas = document.getElementById("gC");
   var ctx = canvas.getContext('2d');
-  canvas.width = 500;
+  canvas.width = 480;
   canvas.height = 400;
   var keys = {};
   window.addEventListener('keydown', function (e) {
@@ -17,44 +17,44 @@
    delete keys[e.keyCode];
   });
   function Box(options) {
-  this.x = options.x || 10;
-  this.y = options.y || 10;
-  this.width = options.width || 40;
-  this.height = options.height || 50;
-  this.color = options.color || '#000000'
-  this.speed = options.speed || 5;
-  this.direction = options.direction || "right" || "up" || "down";
-  this.gravity = options.gravity || 5;
-  this.physical = Math.floor(Math.sqrt(Math.random()*10));
-  this.mental = Math.floor(Math.sqrt(Math.random()*10));
-  this.social = Math.floor(Math.sqrt(Math.random()*10));
-  this.move = function(otherX, otherY) {
-   if((this.x) > 0 && (this.x < otherX)) {
-    this.x++;
-   } else {
-    this.x--;
+   this.x = options.x || 10;
+   this.y = options.y || 10;
+   this.width = options.width || 40;
+   this.height = options.height || 40;
+   this.color = options.color || '#000000'
+   this.speed = options.speed || 4;
+   this.direction = options.direction || "right" || "up" || "down";
+   this.gravity = options.gravity || 4;
+   this.physical = Math.floor(Math.sqrt(Math.random()*100));
+   this.mental = Math.floor(Math.sqrt(Math.random()*100));
+   this.social = Math.floor(Math.sqrt(Math.random()*100));
+   this.move = function(otherX, otherY) {
+    if((this.x) > 0 && (this.x < otherX)) {
+     this.x++;
+    } else {
+     this.x--;
+    }
+    if((this.y > 0) && (this.y < otherY)) {
+     this.y++;
+    } else {
+     this.y--;
+    }
    }
-   if((this.y > 0) && (this.y < otherY)) {
-    this.y++;
-   } else {
-    this.y--;
-   }
-  }
-  this.collideWith = function(otherobject) {
-   var myleft = this.x;
-   var myright = this.x + (this.width);
-   var mytop = this.y;
-   var mybottom = this.y + (this.height);
-   var otherleft = otherobject.x;
-   var otherright = otherobject.x + (otherobject.width);
-   var othertop = otherobject.y;
-   var otherbottom = otherobject.y + (otherobject.height);
-   var collision = true;
-   if ((mybottom <= othertop) || (mytop >= otherbottom) || (myright <= otherleft) || (myleft >= otherright)) {
-    collision = false;
-   }
-    return collision;
-   }
+   this.collideWith = function(otherobject) {
+    var myleft = this.x;
+    var myright = this.x + (this.width);
+    var mytop = this.y;
+    var mybottom = this.y + (this.height);
+    var otherleft = otherobject.x;
+    var otherright = otherobject.x + (otherobject.width);
+    var othertop = otherobject.y;
+    var otherbottom = otherobject.y + (otherobject.height);
+    var collision = true;
+    if ((mybottom <= othertop) || (mytop >= otherbottom) || (myright <= otherleft) || (myleft >= otherright)) {
+     collision = false;
+    }
+     return collision;
+    }
   }
   var player = new Box({
    x: 150,
