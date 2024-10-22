@@ -29,12 +29,12 @@
   this.mental = Math.floor(Math.sqrt(Math.random()*10));
   this.social = Math.floor(Math.sqrt(Math.random()*10));
   this.move = function(otherX, otherY) {
-   if(this.x < otherX) {
+   if((this.x) > 0 && (this.x < otherX)) {
     this.x++;
    } else {
     this.x--;
    }
-   if(this.y < otherY) {
+   if((this.y > 0) && (this.y < otherY)) {
     this.y++;
    } else {
     this.y--;
