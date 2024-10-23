@@ -43,16 +43,21 @@
                 }
             }
             this.attack = function (otherobject) {
-                offguard = 0;
-                opponentoffguard = 0;
-                if((this.mental < otherobject.social) && (this.mental < otherobject.physical)) {
-                    offguard = -2;
-                } else if((this.mental != otherobject.social) && (this.mental != otherobject.physical)) {
-                    opponentoffguard = -2; 
+                penalties = 0;
+                opponentpenalties = 0;
+                if((this.mental < otherobject.social) {
+                   penalties--;
+                   if(this.mental < otherobject.physical)) {
+                    penalties -= 2;
+                   } else if((this.mental != otherobject.social) {
+                       opponentpenalties -= 2;   
+                   }
+                } else if(this.mental != otherobject.physical)) {
+                    opponentpenalties--; 
                 }
-                if(this.physical > (otherobject.physical + opponentoffguard)) {
+                if(this.physical > (otherobject.physical + (opponentpenalties))) {
                     otherobject.respawn();
-                } else if(otherobject.physical > (this.physical + offguard)) {
+                } else if(otherobject.physical > (this.physical + (penalties))) {
                     this.respawn();
                 }
             }
