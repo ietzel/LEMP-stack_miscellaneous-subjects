@@ -8,7 +8,7 @@
           die("Connection failed: " . $conn->connect_error); 
     } 
   
-    $sql = "CREATE DATABASE gfgDB"; 
+    $sql = "CREATE DATABASE vtmDB"; 
     if ($conn->query($sql) === TRUE) { 
           echo "Database has been created successfully"; 
     } else { 
