@@ -18,7 +18,7 @@
         window.addEventListener('keyup', function (e) {
             delete keys[e.keyCode];
         });
-        function Box(options) {
+        function Box(p, m, s, options) {
             this.x = options.x || 10;
             this.y = options.y || 10;
             this.width = options.width || 40;
@@ -27,15 +27,9 @@
             this.speed = options.speed || 4;
             this.direction = options.direction || "right" || "up" || "down";
             this.gravity = options.gravity || 4;
-            this.strength = Math.floor(Math.sqrt(Math.random() * 100));
-            this.dexterity = Math.floor(Math.sqrt(Math.random() * 100));
-            this.stamina = Math.floor(Math.sqrt(Math.random() * 100));
-            this.wits = Math.floor(Math.sqrt(Math.random() * 100));
-            this.intelligence = Math.floor(Math.sqrt(Math.random() * 100));
-            this.resolve = Math.floor(Math.sqrt(Math.random() * 100));
-            this.composure = Math.floor(Math.sqrt(Math.random() * 100));
-            this.manipulation = Math.floor(Math.sqrt(Math.random() * 100));
-            this.charisma = Math.floor(Math.sqrt(Math.random() * 100));
+            this.physical = p;
+            this.mental = m;
+            this.social = s;
             this.move = function (otherX, otherY) {
                 if ((this.x) > 0 && (this.x < otherX)) {
                     this.x++;
@@ -51,32 +45,26 @@
             this.attack = function (otherobject) {
                 penalties = 0;
                 opponentpenalties = 0;
-                if((Math.floor((this.wits + this.intelligence + this.resolve)/3) < Math.floor((otherobject.composure + otherobject.manipulation + otherobject.charisma)/3)) {
+                if(this.mental < otherobject.social) {
                    penalties--;
-                   if(Math.floor((this.wits + this.intelligence + this.resolve)/3) < otherobject.dexterity)) {
+                   ifthis.mental < otherobject.physical)) {
                     penalties -= 2;
-                   } else if((Math.floor((this.wits + this.intelligence + this.resolve)/3) != Math.floor((otherobject.composure + otherobject.manipulation + otherobject.charisma)/3)) {
+                   } else if(this.mental != otherobject.social) {
                        opponentpenalties -= 2;   
                    }
-                } else if(Math.floor((this.wits + this.intelligence + this.resolve)/3) != otherobject.dexterity)) {
+                } else ifthis.mental != otherobject.physical)) {
                     opponentpenalties--; 
                 }
-                if((Math.max(this.strenth, this.dexterity) > (otherobject.dexterity + (opponentpenalties))) && (this.strength >= otherobject.stamina)) {
+                if((Math.max(this.physical, this.physical) > (otherobject.physical + (opponentpenalties))) && (this.physical >= otherobject.physical)) {
                     otherobject.respawn();
-                } else if(Math.max(otherobject.strenth, otherobject.dexterity) > (this.dexterity + (opponentpenalties))) && (otherobject.strength >= this.stamina)) {
+                } else if(Math.max(otherobject.physical, otherobject.physical) > (this.physical + (opponentpenalties))) && (otherobject.physical >= this.physical)) {
                     this.respawn();
                 }
             }
             this.respawn() {
-                this.strength = Math.floor(Math.sqrt(Math.random() * 100));
-                this.dexterity = Math.floor(Math.sqrt(Math.random() * 100));
-                this.stamina = Math.floor(Math.sqrt(Math.random() * 100));
-                this.wits = Math.floor(Math.sqrt(Math.random() * 100));
-                this.intelligence = Math.floor(Math.sqrt(Math.random() * 100));
-                this.resolve = Math.floor(Math.sqrt(Math.random() * 100));
-                this.composure = Math.floor(Math.sqrt(Math.random() * 100));
-                this.manipulation = Math.floor(Math.sqrt(Math.random() * 100));
-                this.charisma = Math.floor(Math.sqrt(Math.random() * 100));
+                this.physical = Math.floor(Math.sqrt(Math.random() * 100));
+                this.mental = Math.floor(Math.sqrt(Math.random() * 100));
+                this.social = Math.floor(Math.sqrt(Math.random() * 100));
                 this.x = options.x || 10;
                 this.y = options.y || 10;
             }
