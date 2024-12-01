@@ -87,7 +87,7 @@
                 return collision;
             }
         }
-        var player = new Box({
+        var player = new Box(1, 1, 1, {
             x: 150,
             y: 300,
             width: 40,
@@ -95,13 +95,283 @@
             color: "black",
             speed: 5
         });
-        var enemy = new Box({
-            x: 60,
-            y: 50,
+        var enemy = new Box(1, 1, 1, {
+            x: Math.random()*canvas.width,
+            y: Math.random()*canvas.height,
             width: 40,
             height: 40,
             color: "black"
         });
+        var enemies = [
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+            enemy,
+        ];
+        //Blackmailer
+        enemies[0].physical = 3;
+        enemies[0].mental = 5;
+        enemies[0].social = 6;
+        //Bear Trap
+        enemies[1].physical = 3;
+        enemies[1].mental = 4;
+        enemies[1].social = 5;
+        //Cuckoo
+        enemies[2].physical = 4;
+        enemies[2].mental = 5;
+        enemies[2].social = 6;
+        //Blood Doll
+        enemies[3].physical = 4;
+        enemies[3].mental = 5;
+        enemies[3].social = 4;
+        //Deprogrammer
+        enemies[4].physical = 4;
+        enemies[4].mental = 6;
+        enemies[4].social = 6;
+        //Oswobodziciele Liberator
+        enemies[5].physical = 6;
+        enemies[5].mental = 6;
+        enemies[5].social = 6;
+        //Psychic Surgeon
+        enemies[6].physical = 4;
+        enemies[6].mental = 6;
+        enemies[6].social = 6;
+        //False Flagger
+        enemies[7].physical = 5;
+        enemies[7].mental = 6;
+        enemies[7].social = 7;
+        //Gentrifier
+        enemies[8].physical = 4;
+        enemies[8].mental = 5;
+        enemies[8].social = 6;
+        //Broker
+        enemies[9].physical = 4;
+        enemies[9].mental = 5;
+        enemies[9].social = 6;
+        //Dealer
+        enemies[0].physical = 3;
+        enemies[0].mental = 4;
+        enemies[0].social = 5;
+        //Informant
+        enemies[1].physical = 3;
+        enemies[1].mental = 3;
+        enemies[1].social = 4;
+        //Canary
+        enemies[2].physical = 3;
+        enemies[2].mental = 3;
+        enemies[2].social = 4;
+        //Politician
+        enemies[3].physical = 3;
+        enemies[3].mental = 5;
+        enemies[3].social = 6;
+        //Socialite
+        enemies[4].physical = 3;
+        enemies[4].mental = 5;
+        enemies[4].social = 7;
+        //Busybody
+        enemies[5].physical = 3;
+        enemies[5].mental = 5;
+        enemies[5].social = 7;
+        //Bear-Leader
+        enemies[6].physical = 4;
+        enemies[6].mental = 6;
+        enemies[6].social = 6;
+        //Black-Bagger
+        enemies[7].physical = 4;
+        enemies[7].mental = 6;
+        enemies[7].social = 3;
+        //Mechanic
+        enemies[8].physical = 5;
+        enemies[8].mental = 5;
+        enemies[8].social = 3;
+        //Burrower
+        enemies[9].physical = ;
+        enemies[9].mental = ;
+        enemies[9].social = ;
+        //Forensic Accountant
+        enemies[0].physical = ;
+        enemies[0].mental = ;
+        enemies[0].social = ;
+        //
+        enemies[1].physical = ;
+        enemies[1].mental = ;
+        enemies[1].social = ;
+        //
+        enemies[2].physical = ;
+        enemies[2].mental = ;
+        enemies[2].social = ;
+        //
+        enemies[3].physical = ;
+        enemies[3].mental = ;
+        enemies[3].social = ;
+        //
+        enemies[4].physical = ;
+        enemies[4].mental = ;
+        enemies[4].social = ;
+        //
+        enemies[5].physical = ;
+        enemies[5].mental = ;
+        enemies[5].social = ;
+        //
+        enemies[6].physical = ;
+        enemies[6].mental = ;
+        enemies[6].social = ;
+        //
+        enemies[7].physical = ;
+        enemies[7].mental = ;
+        enemies[7].social = ;
+        //
+        enemies[8].physical = ;
+        enemies[8].mental = ;
+        enemies[8].social = ;
+        //
+        enemies[9].physical = ;
+        enemies[9].mental = ;
+        enemies[9].social = ;
+        //
+        enemies[0].physical = ;
+        enemies[0].mental = ;
+        enemies[0].social = ;
+        //
+        enemies[1].physical = ;
+        enemies[1].mental = ;
+        enemies[1].social = ;
+        //
+        enemies[2].physical = ;
+        enemies[2].mental = ;
+        enemies[2].social = ;
+        //
+        enemies[3].physical = ;
+        enemies[3].mental = ;
+        enemies[3].social = ;
+        //
+        enemies[4].physical = ;
+        enemies[4].mental = ;
+        enemies[4].social = ;
+        //
+        enemies[5].physical = ;
+        enemies[5].mental = ;
+        enemies[5].social = ;
+        //
+        enemies[6].physical = ;
+        enemies[6].mental = ;
+        enemies[6].social = ;
+        //
+        enemies[7].physical = ;
+        enemies[7].mental = ;
+        enemies[7].social = ;
+        //
+        enemies[8].physical = ;
+        enemies[8].mental = ;
+        enemies[8].social = ;
+        //
+        enemies[9].physical = ;
+        enemies[9].mental = ;
+        enemies[9].social = ;
+        //
+        enemies[0].physical = ;
+        enemies[0].mental = ;
+        enemies[0].social = ;
+        //
+        enemies[1].physical = ;
+        enemies[1].mental = ;
+        enemies[1].social = ;
+        //
+        enemies[2].physical = ;
+        enemies[2].mental = ;
+        enemies[2].social = ;
+        //
+        enemies[3].physical = ;
+        enemies[3].mental = ;
+        enemies[3].social = ;
+        //
+        enemies[4].physical = ;
+        enemies[4].mental = ;
+        enemies[4].social = ;
+        //
+        enemies[5].physical = ;
+        enemies[5].mental = ;
+        enemies[5].social = ;
+        //
+        enemies[6].physical = ;
+        enemies[6].mental = ;
+        enemies[6].social = ;
+        //
+        enemies[7].physical = ;
+        enemies[7].mental = ;
+        enemies[7].social = ;
+        //
+        enemies[8].physical = ;
+        enemies[8].mental = ;
+        enemies[8].social = ;
+        //
+        enemies[9].physical = ;
+        enemies[9].mental = ;
+        enemies[9].social = ;
+        //
+        enemies[0].physical = ;
+        enemies[0].mental = ;
+        enemies[0].social = ;
+        //
+        enemies[1].physical = ;
+        enemies[1].mental = ;
+        enemies[1].social = ;
+        //
+        enemies[2].physical = ;
+        enemies[2].mental = ;
+        enemies[2].social = ;
+        //
+        enemies[3].physical = ;
+        enemies[3].mental = ;
+        enemies[3].social = ;
+        //
+        enemies[4].physical = ;
+        enemies[4].mental = ;
+        enemies[4].social = ;
+        //
+        enemies[5].physical = ;
+        enemies[5].mental = ;
+        enemies[5].social = ;
+        //
+        enemies[6].physical = ;
+        enemies[6].mental = ;
+        enemies[6].social = ;
+        //
+        enemies[7].physical = ;
+        enemies[7].mental = ;
+        enemies[7].social = ;
+        //
+        enemies[8].physical = ;
+        enemies[8].mental = ;
+        enemies[8].social = ;
+        //
+        enemies[9].physical = ;
+        enemies[9].mental = ;
+        enemies[9].social = ;
         function input(player) {
             if (37 in keys) {
                 if (player.x - player.speed > 0) {
