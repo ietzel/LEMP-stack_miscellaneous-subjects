@@ -87,7 +87,7 @@
                 return collision;
             }
         }
-        var player = new Box(1, 1, 1, {
+        var player = new Box(Math.floor(Math.sqrt(Math.random() * 100)), Math.floor(Math.sqrt(Math.random() * 100)), Math.floor(Math.sqrt(Math.random() * 100)), {
             x: 150,
             y: 300,
             width: 40,
@@ -95,7 +95,7 @@
             color: "black",
             speed: 5
         });
-        var enemy = new Box(1, 1, 1, {
+        var enemy = new Box(Math.floor(Math.sqrt(Math.random() * 100)), Math.floor(Math.sqrt(Math.random() * 100)), Math.floor(Math.sqrt(Math.random() * 100)), {
             x: Math.random()*canvas.width,
             y: Math.random()*canvas.height,
             width: 40,
