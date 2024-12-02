@@ -1,7 +1,7 @@
 <body>
     <style>
         body {
-            background-color: black
+            background-color: blue
         }
     </style>
     <canvas id="gC"></canvas>
@@ -163,7 +163,8 @@
             enemy,
             enemy,
             enemy,
-            enemy
+            enemy,
+            enemy,
         ];
         //Blackmailer
         enemies[0].physical = 3;
@@ -452,17 +453,23 @@
                 ctx.fillStyle = "gray";
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 drawBox(player);
-                drawBox(enemy);
+                for(i=0; i<enemies.length; i++) {
+                    drawBox(enemies[i]);    
+                }
             } else {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = "gray";
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 drawBox(player);
-                drawBox(enemy);
+                for(i=0; i<enemies.length; i++) {
+                    drawBox(enemies[i]);    
+                }
             }
         }
         function loop() {
-            enemy.move(player.x, player.y);
+            for(i=0; i<enemies.length; i++) {
+                enemies[i].move(player.x, player.y);
+            }
             update();
             draw();
             window.requestAnimationFrame(loop);
