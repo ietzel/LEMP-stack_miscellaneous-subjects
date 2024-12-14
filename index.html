@@ -18,7 +18,7 @@
         window.addEventListener('keyup', function (e) {
             delete keys[e.keyCode];
         });
-        function Box(p, m, s, options) {
+        function Entity(p, m, s, options) {
             this.x = options.x || 10;
             this.y = options.y || 10;
             this.width = options.width || 40;
@@ -90,16 +90,16 @@
         var player = new Box(Math.floor(Math.sqrt(Math.random() * 100)), Math.floor(Math.sqrt(Math.random() * 100)), Math.floor(Math.sqrt(Math.random() * 100)), {
             x: 150,
             y: 300,
-            width: 40,
-            height: 40,
+            width: 15,
+            height: 15,
             color: "black",
             speed: 5
         });
         var enemy = new Box(Math.floor(Math.sqrt(Math.random() * 100)), Math.floor(Math.sqrt(Math.random() * 100)), Math.floor(Math.sqrt(Math.random() * 100)), {
             x: Math.random()*canvas.width,
             y: Math.random()*canvas.height,
-            width: 40,
-            height: 40,
+            width: 15,
+            height: 15,
             color: "black"
         });
         var enemies = [
@@ -440,9 +440,11 @@
                 player.direction = 'down';
             }
         }
-        function drawBox(box) {
-            ctx.fillStyle = box.color;
-            ctx.fillRect(box.x, box.y, box.width, box.height);
+        function drawBox(entity) {
+            ctx.fillStyle = entity.color;
+            ctx.fillEllipse(entity.x, entity.y+entity.height, entity.width, entity.height);
+            ctx.fillEllipse(entity.x-entity.width, entity.y, entity.width, entity.height);
+            ctx.fillEllipse(entity.x+entity.width, entity.y, entity.width, entity.height);
         }
         function update() {
             input(player);
