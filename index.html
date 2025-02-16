@@ -1323,6 +1323,22 @@
         enter lines
         Say to yourself: you don't have to do & don't have to not do the things you aren't responsible for.
     </p>
+    <script>
+        const { NlpManager } = require('node-nlp');
+    
+        const manager = new NlpManager({ languages: ['en', 'es', 'fr'] });
+        
+        async function detectLanguage(text) {
+          const result = await manager.process(text);
+          return result.language;
+        }
+        
+        detectLanguage("This is an English sentence.")
+          .then(language => console.log(`Detected language: ${language}`));
+        
+        detectLanguage("Esta es una frase en español.")
+          .then(language => console.log(`Detected language: ${language}`));
+    </script>
     <h1>Weekly Chores</h1>
     <p>
         chores = vacuuming, cleaning
