@@ -1,1 +1,1 @@
-Run on ubuntu & apache.
+Run on ubuntu & nginx.
